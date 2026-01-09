@@ -7,8 +7,8 @@
 
 <style>
 :root {
-  --bg: #0b0f14;
-  --panel: #0f1623;
+  --bg: #020617;
+  --panel: #0b1220;
   --text: #d1d5db;
   --muted: #9ca3af;
   --accent: #38bdf8;
@@ -45,7 +45,7 @@ body {
 header {
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: 1.5rem;
+  gap: 2rem;
   align-items: center;
   margin-bottom: 2.5rem;
 }
@@ -58,7 +58,7 @@ header h1 {
 }
 
 header h2 {
-  margin: 0.3rem 0 0;
+  margin: 0.4rem 0 0;
   font-size: 1.1rem;
   font-weight: 400;
   color: var(--accent);
@@ -81,6 +81,17 @@ header p {
   text-shadow: 0 0 8px var(--glow);
 }
 
+.avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 14px;
+  object-fit: cover;
+  border: 1px solid rgba(56,189,248,0.4);
+  box-shadow:
+    0 0 20px var(--glow),
+    0 10px 30px rgba(0,0,0,0.6);
+}
+
 section {
   margin-bottom: 2.2rem;
 }
@@ -89,7 +100,6 @@ section h3 {
   font-size: 1.2rem;
   color: white;
   margin-bottom: 1rem;
-  position: relative;
 }
 
 section h3::before {
@@ -143,6 +153,11 @@ section h3::before {
     grid-template-columns: 1fr;
   }
 
+  .avatar {
+    width: 110px;
+    height: 110px;
+  }
+
   .item span {
     float: none;
     display: block;
@@ -171,6 +186,8 @@ section h3::before {
             <a href="#">linkedin</a>
           </div>
         </div>
+
+        <img src="profile.jpg" alt="Profile photo" class="avatar" />
       </header>
 
       <section>
