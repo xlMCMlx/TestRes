@@ -1,243 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Will Johnson | Developer Resume</title>
+  <meta charset="UTF-8" />
+  <title>Your Name | Resume</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<style>
-:root {
-  --bg: #020617;
-  --panel: #0b1220;
-  --text: #d1d5db;
-  --muted: #9ca3af;
-  --accent: #38bdf8;
-  --glow: rgba(56,189,248,0.35);
-}
+  <style>
+    :root {
+      --black: #0b0b0e;
+      --purple: #7a5cff;
+      --red: #d62828;
+      --gray: #cfcfd6;
+    }
 
-* {
-  box-sizing: border-box;
-}
+    * {
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+    }
 
-body {
-  margin: 0;
-  background: radial-gradient(circle at top, #0f172a, #020617);
-  color: var(--text);
-  font-family: "JetBrains Mono", monospace;
-  line-height: 1.6;
-}
+    body {
+      margin: 0;
+      background: var(--black);
+      color: var(--gray);
+      padding: 30px;
+    }
 
-.container {
-  max-width: 950px;
-  margin: auto;
-  padding: 3rem 1.5rem;
-}
+    .resume {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      background: #111118;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+    }
 
-.card {
-  background: linear-gradient(180deg, var(--panel), #020617);
-  border-radius: 16px;
-  padding: 2.5rem;
-  box-shadow:
-    0 0 0 1px rgba(56,189,248,0.15),
-    0 20px 40px rgba(0,0,0,0.6);
-}
+    /* LEFT COLUMN */
+    .sidebar {
+      background: linear-gradient(180deg, #120f24, #0b0b0e);
+      padding: 35px 25px;
+      border-right: 2px solid var(--purple);
+    }
 
-header {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 2rem;
-  align-items: center;
-  margin-bottom: 2.5rem;
-}
+    .name {
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: white;
+    }
 
-header h1 {
-  font-size: 2.4rem;
-  margin: 0;
-  color: white;
-  text-shadow: 0 0 12px var(--glow);
-}
+    .role {
+      color: var(--purple);
+      margin-top: 8px;
+      font-weight: 600;
+    }
 
-header h2 {
-  margin: 0.4rem 0 0;
-  font-size: 1.1rem;
-  font-weight: 400;
-  color: var(--accent);
-}
+    .sidebar h3 {
+      margin-top: 40px;
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+      color: var(--red);
+    }
 
-header p {
-  max-width: 520px;
-  color: var(--muted);
-}
+    .skills {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
 
-.links a {
-  display: inline-block;
-  margin-right: 1rem;
-  color: var(--accent);
-  text-decoration: none;
-  font-size: 0.95rem;
-}
+    .skills li {
+      padding: 6px 0;
+      border-bottom: 1px solid #262638;
+    }
 
-.links a:hover {
-  text-shadow: 0 0 8px var(--glow);
-}
+    .contact {
+      margin-top: 30px;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
 
-.avatar {
-  width: 140px;
-  height: 140px;
-  border-radius: 14px;
-  object-fit: cover;
-  border: 1px solid rgba(56,189,248,0.4);
-  box-shadow:
-    0 0 20px var(--glow),
-    0 10px 30px rgba(0,0,0,0.6);
-}
+    /* RIGHT COLUMN */
+    .content {
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+    }
 
-section {
-  margin-bottom: 2.2rem;
-}
+    section {
+      margin-bottom: 35px;
+    }
 
-section h3 {
-  font-size: 1.2rem;
-  color: white;
-  margin-bottom: 1rem;
-}
+    section h2 {
+      color: white;
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+      border-bottom: 2px solid var(--purple);
+      display: inline-block;
+    }
 
-section h3::before {
-  content: ">";
-  color: var(--accent);
-  margin-right: 0.5rem;
-}
+    /* CONTACT FORM */
+    .contact-form {
+      max-width: 600px;
+    }
 
-.item {
-  padding-left: 1.2rem;
-  margin-bottom: 1.2rem;
-  border-left: 2px solid rgba(56,189,248,0.3);
-}
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      background: #0b0b0e;
+      border: 1px solid #262638;
+      color: white;
+      padding: 12px;
+      margin-bottom: 12px;
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
 
-.item strong {
-  color: white;
-}
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--purple);
+    }
 
-.item span {
-  float: right;
-  color: var(--muted);
-  font-size: 0.85rem;
-}
+    .contact-form button {
+      background: var(--purple);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 0.95rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
 
-.item ul {
-  margin-top: 0.5rem;
-  padding-left: 1.2rem;
-}
+    .contact-form button:hover {
+      background: var(--red);
+    }
 
-.skills {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 0.6rem;
-}
+    /* TIMELINE */
+    .timeline-wrapper {
+      margin-top: auto;
+      padding-top: 40px;
+      border-top: 2px solid #262638;
+    }
 
-.skill {
-  background: rgba(56,189,248,0.08);
-  border: 1px solid rgba(56,189,248,0.25);
-  padding: 0.6rem 0.8rem;
-  border-radius: 10px;
-  text-align: center;
-  font-size: 0.9rem;
-}
+    .timeline {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+    }
 
-.skill:hover {
-  box-shadow: 0 0 12px var(--glow);
-}
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 18px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--purple);
+    }
 
-@media (max-width: 700px) {
-  header {
-    grid-template-columns: 1fr;
-  }
+    .timeline-item {
+      text-align: center;
+      width: 30%;
+      position: relative;
+    }
 
-  .avatar {
-    width: 110px;
-    height: 110px;
-  }
+    .timeline-dot {
+      width: 16px;
+      height: 16px;
+      background: var(--red);
+      border-radius: 50%;
+      margin: auto;
+      box-shadow: 0 0 0 4px rgba(214, 40, 40, 0.25);
+      z-index: 2;
+      position: relative;
+    }
 
-  .item span {
-    float: none;
-    display: block;
-  }
-}
-</style>
+    .timeline-date {
+      margin-top: 10px;
+      color: var(--purple);
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    .timeline-title {
+      color: white;
+      font-weight: 600;
+      margin-top: 6px;
+    }
+
+    .timeline-company {
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 850px) {
+      .resume {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        border-right: none;
+        border-bottom: 2px solid var(--purple);
+      }
+
+      .timeline {
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .timeline::before {
+        display: none;
+      }
+
+      .timeline-item {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
-
 <body>
-  <div class="container">
-    <div class="card">
 
-      <header>
-        <div>
-          <h1>Will Johnson</h1>
-          <h2>Software & Data Engineering Student</h2>
+<div class="resume">
 
-          <p>
-            University student focused on building scalable systems, data-driven applications,
-            and clean user interfaces. Interested in backend development and analytics.
-          </p>
+  <aside class="sidebar">
+    <div class="name">Your Name</div>
+    <div class="role">Student • Developer</div>
 
-          <div class="links">
-            <a href="mailto:will@email.com">email</a>
-            <a href="#">github</a>
-            <a href="#">linkedin</a>
-          </div>
-        </div>
+    <h3>SKILLS</h3>
+    <ul class="skills">
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+      <li>GitHub Pages</li>
+    </ul>
 
-        <img src="profile.jpg" alt="Profile photo" class="avatar" />
-      </header>
-
-      <section>
-        <h3>Experience</h3>
-
-        <div class="item">
-          <strong>Research Assistant — Data Analysis</strong>
-          <span>2024 – Present</span>
-          <ul>
-            <li>Processed and analyzed datasets using Python and SQL.</li>
-            <li>Built reusable scripts to automate reporting workflows.</li>
-          </ul>
-        </div>
-
-        <div class="item">
-          <strong>Software Intern</strong>
-          <span>2023 – 2024</span>
-          <ul>
-            <li>Developed internal tools using HTML, CSS, and JavaScript.</li>
-            <li>Collaborated with engineers using Git and GitHub.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section>
-        <h3>Projects</h3>
-
-        <div class="item">
-          <strong>Resume Website Generator</strong>
-          <ul>
-            <li>Built reusable HTML templates deployed via GitHub Pages.</li>
-            <li>Designed recruiter-friendly layouts with QR integration.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section>
-        <h3>Skills</h3>
-
-        <div class="skills">
-          <div class="skill">Python</div>
-          <div class="skill">JavaScript</div>
-          <div class="skill">HTML / CSS</div>
-          <div class="skill">Git & GitHub</div>
-          <div class="skill">SQL</div>
-          <div class="skill">Data Analysis</div>
-        </div>
-      </section>
-
+    <div class="contact">
+      📧 youremail@email.com<br>
+      🌐 yoursite.github.io
     </div>
-  </div>
+  </aside>
+
+  <main class="content">
+
+    <section>
+      <h2>Profile</h2>
+      <p>Motivated developer building clean, modern web experiences.</p>
+    </section>
+
+    <section>
+      <h2>Contact Me</h2>
+
+      <form class="contact-form"
+        action="mailto:tabearus@gmail.com"
+        method="POST"
+        enctype="text/plain">
+
+        <input type="text" name="Name" placeholder="Your Name" required>
+        <input type="email" name="Email" placeholder="Your Email" required>
+        <textarea name="Message" rows="5" placeholder="Your message..." required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+
+    <div class="timeline-wrapper">
+      <h2>Experience</h2>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2016 – 2018</div>
+          <div class="timeline-title">Job Title One</div>
+          <div class="timeline-company">Company</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2019 – 2023</div>
+          <div class="timeline-title">Job Title Two</div>
+          <div class="timeline-company">Company</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2023 – Present</div>
+          <div class="timeline-title">Job Title Three</div>
+          <div class="timeline-company">Company</div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+</div>
+
 </body>
 </html>
