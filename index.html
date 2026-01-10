@@ -8,45 +8,84 @@
 <style>
 body {
   margin: 0;
+  background: #050005;
   font-family: system-ui, sans-serif;
-  background: #080008;
   color: #f5f5f5;
 }
 
-/* ===== Main Resume Grid ===== */
-.resume {
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  min-height: 100vh;
+/* ===== Center Panel ===== */
+.panel {
+  max-width: 1100px;
+  margin: 60px auto;
+  background: linear-gradient(160deg, #0b000f, #120016);
+  border-radius: 24px;
+  box-shadow: 0 0 80px rgba(160, 0, 255, 0.25);
+  border: 1px solid rgba(255, 0, 80, 0.35);
+  overflow: hidden;
 }
 
-/* ===== Left Column ===== */
+/* ===== Header ===== */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 40px;
+  border-bottom: 1px solid rgba(255,0,80,0.25);
+}
+
+.photo {
+  width: 140px;
+  height: 140px;
+  background: linear-gradient(135deg, #220022, #0f0014);
+  border-radius: 16px;
+  border: 2px solid #a000ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #777;
+  font-size: 14px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 36px;
+  color: #ffffff;
+}
+
+.header p {
+  margin-top: 6px;
+  color: #bbb;
+}
+
+/* ===== Body Grid ===== */
+.body {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+}
+
+/* ===== Sidebar ===== */
 .sidebar {
-  background: linear-gradient(180deg, #0c000f, #120016);
-  padding: 32px 24px;
-  border-right: 1px solid rgba(255, 0, 80, 0.3);
+  padding: 32px;
+  border-right: 1px solid rgba(255,0,80,0.25);
 }
 
 .sidebar h2 {
   color: #ff2f6d;
-  margin-bottom: 12px;
   font-size: 18px;
-  letter-spacing: 1px;
+  margin-bottom: 16px;
 }
 
 .skill {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   font-size: 14px;
-  opacity: 0.9;
 }
 
-/* ===== Right Content ===== */
+/* ===== Main Content ===== */
 .content {
-  padding: 40px;
+  padding: 32px 40px;
 }
 
-/* ===== Experience Details ===== */
-.experience h2 {
+.content h2 {
   color: #a000ff;
   margin-bottom: 16px;
 }
@@ -57,7 +96,7 @@ body {
 
 .job h3 {
   margin: 0;
-  color: #ffffff;
+  color: #fff;
 }
 
 .job span {
@@ -65,9 +104,15 @@ body {
   color: #aaa;
 }
 
+.job p {
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
 /* ===== Timeline ===== */
 .timeline {
-  margin: 60px 0 40px;
+  margin: 50px 0;
 }
 
 .timeline h2 {
@@ -76,9 +121,9 @@ body {
 }
 
 .timeline-bar {
+  position: relative;
   display: flex;
   justify-content: space-between;
-  position: relative;
 }
 
 .timeline-bar::before {
@@ -92,10 +137,8 @@ body {
 }
 
 .timeline-item {
-  position: relative;
-  background: #080008;
-  padding: 10px;
   text-align: center;
+  z-index: 1;
 }
 
 .timeline-dot {
@@ -111,24 +154,24 @@ body {
   font-size: 13px;
 }
 
-/* ===== Contact Section ===== */
-#contact {
-  max-width: 520px;
-  margin: 80px auto 20px;
-  padding: 32px;
-  background: linear-gradient(145deg, #0b0b0b, #140018);
-  border-radius: 16px;
-  box-shadow: 0 0 40px rgba(160, 0, 255, 0.25);
-  border: 1px solid rgba(255, 0, 80, 0.3);
+/* ===== Contact ===== */
+.contact {
+  padding: 40px;
+  border-top: 1px solid rgba(255,0,80,0.25);
 }
 
-#contact h2 {
+.contact h2 {
   text-align: center;
   margin-bottom: 24px;
 }
 
-#contact input,
-#contact textarea {
+.contact form {
+  max-width: 520px;
+  margin: auto;
+}
+
+.contact input,
+.contact textarea {
   width: 100%;
   padding: 14px;
   margin-bottom: 14px;
@@ -138,14 +181,14 @@ body {
   color: #fff;
 }
 
-#contact input:focus,
-#contact textarea:focus {
+.contact input:focus,
+.contact textarea:focus {
   border-color: #a000ff;
   box-shadow: 0 0 10px rgba(160, 0, 255, 0.4);
   outline: none;
 }
 
-#contact button {
+.contact button {
   width: 100%;
   padding: 14px;
   background: linear-gradient(135deg, #ff003c, #7a00ff);
@@ -166,75 +209,89 @@ body {
 
 <body>
 
-<div class="resume">
+<div class="panel">
 
-  <!-- LEFT COLUMN -->
-  <aside class="sidebar">
-    <h2>SKILLS</h2>
-    <div class="skill">HTML / CSS / JS</div>
-    <div class="skill">GitHub Pages</div>
-    <div class="skill">UI / UX Design</div>
-    <div class="skill">Responsive Design</div>
-    <div class="skill">Problem Solving</div>
-  </aside>
+  <!-- HEADER -->
+  <div class="header">
+    <div class="photo">Photo</div>
+    <div>
+      <h1>Your Name</h1>
+      <p>Web Developer · Designer · Problem Solver</p>
+    </div>
+  </div>
 
-  <!-- RIGHT CONTENT -->
-  <main class="content">
+  <!-- BODY -->
+  <div class="body">
 
-    <section class="experience">
-      <h2>Experience</h2>
+    <!-- SKILLS -->
+    <aside class="sidebar">
+      <h2>Skills</h2>
+      <div class="skill">HTML / CSS / JavaScript</div>
+      <div class="skill">GitHub Pages</div>
+      <div class="skill">Responsive Design</div>
+      <div class="skill">UI / UX</div>
+      <div class="skill">Problem Solving</div>
+    </aside>
 
-      <div class="job">
-        <h3>Web Developer</h3>
-        <span>2024 – Present</span>
-        <p>Built and deployed resume websites, custom tools, and static apps using GitHub Pages.</p>
-      </div>
+    <!-- CONTENT -->
+    <main class="content">
 
-      <div class="job">
-        <h3>Freelance Projects</h3>
-        <span>2023 – 2024</span>
-        <p>Designed modern, responsive layouts with a focus on clarity and performance.</p>
-      </div>
-    </section>
+      <section>
+        <h2>Experience</h2>
 
-    <!-- TIMELINE -->
-    <section class="timeline">
-      <h2>Work Timeline</h2>
-      <div class="timeline-bar">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <span>2022</span>
+        <div class="job">
+          <h3>Web Developer</h3>
+          <span>2024 – Present</span>
+          <p>Building modern static websites and resume pages deployed on GitHub Pages.</p>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <span>2023</span>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <span>2024</span>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <span>2025</span>
-        </div>
-      </div>
-    </section>
 
-  </main>
+        <div class="job">
+          <h3>Freelance Projects</h3>
+          <span>2023 – 2024</span>
+          <p>Created clean, visually striking interfaces with a focus on usability.</p>
+        </div>
+      </section>
+
+      <!-- TIMELINE -->
+      <section class="timeline">
+        <h2>Work Timeline</h2>
+        <div class="timeline-bar">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <span>2022</span>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <span>2023</span>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <span>2024</span>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <span>2025</span>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- CONTACT -->
+  <section class="contact">
+    <h2>Contact Me</h2>
+
+    <form id="contact-form" action="https://formspree.io/f/mjggbovn" method="POST">
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="message" placeholder="Message" required></textarea>
+      <button type="submit">Send Message</button>
+      <p id="form-status"></p>
+    </form>
+  </section>
+
 </div>
-
-<!-- CONTACT -->
-<section id="contact">
-  <h2>Contact Me</h2>
-
-  <form id="contact-form" action="https://formspree.io/f/mjggbovn" method="POST">
-    <input type="text" name="name" placeholder="Name" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <textarea name="message" placeholder="Message" required></textarea>
-    <button type="submit">Send Message</button>
-    <p id="form-status"></p>
-  </form>
-</section>
 
 <script>
 const form = document.getElementById("contact-form");
@@ -242,7 +299,6 @@ const status = document.getElementById("form-status");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
-
   status.textContent = "Sending...";
   status.style.color = "#aaa";
 
